@@ -332,8 +332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 2
-  moveForce: 1000
-  maxMoveForce: 5
 --- !u!54 &1337564826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -436,8 +434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 1
-  moveForce: 1000
-  maxMoveForce: 5
 --- !u!54 &1388135103
 Rigidbody:
   m_ObjectHideFlags: 0

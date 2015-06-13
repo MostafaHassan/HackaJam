@@ -7,15 +7,20 @@ public class Player : MonoBehaviour {
 	private string AxisX;
 	private string AxisY;
 	private string JumpButton;
+	private string DashButton;
 
 	Rigidbody rigBody;
 
-	public float moveForce = 1000f;
-	public float maxMoveForce = 5f;
+	float moveForce = 1000f;
+	float maxMoveForce = 5f;
 
-	float jumpCDMax = 10.0f;
-	float jumpCDLeft = 0f;
-	float jumpForce = 10f;
+	float jumpCDMax = 4.0f;
+	private float jumpCDLeft = 0f;
+	float jumpForce = 500f;
+
+	float dashCDMax = 7.0f;
+	private float dashCDLeft = 0f;
+	float dashForce = 500f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,12 +29,14 @@ public class Player : MonoBehaviour {
 			AxisX = "JoyHor1";
 			AxisY = "JoyVer1";
 			JumpButton = "JoyJump1";
+			DashButton = "JoyDash1";
 		} 
 		else if (PlayerNumber == 2) 
 		{
 			AxisX = "JoyHor2";
 			AxisY = "JoyVer2";
 			JumpButton = "JoyJump2";
+			DashButton = "JoyDash2";
 		}
 		rigBody = transform.GetComponent<Rigidbody> ();
 
@@ -54,16 +61,30 @@ public class Player : MonoBehaviour {
 		}
 
 		jumpCDLeft -= Time.deltaTime;
-		Mathf.Max (jumpCDLeft, 0);
+		jumpCDLeft = Mathf.Max (jumpCDLeft, 0);
 
-		if (jumpCDLeft == 0) 
+		if (jumpCDLeft == 0f) 
 		{
-			Debug.Log("First step");
-			if (Input.GetButton ("Fire2")) 
+			if (Input.GetButton (JumpButton)) 
 			{
-				Debug.Log("Worked");
+				Debug.Log("Jump!");
+				Debug.Log(JumpButton);
 				rigBody.AddForce(transform.up* jumpForce);
 				jumpCDLeft += jumpCDMax;
+			}
+		}
+
+		dashCDLeft -= Time.deltaTime;
+		dashCDLeft = Mathf.Max (dashCDLeft, 0);
+
+		if (dashCDLeft == 0f) 
+		{
+			if (Input.GetButton (DashButton)) 
+			{
+				Debug.Log("Dash!");
+				Debug.Log(DashButton);
+				rigBody.AddForce(transform.forward* dashForce);
+				dashCDLeft += dashCDMax;
 			}
 		}
 	
