@@ -8,9 +8,14 @@ public class Player : MonoBehaviour {
 	private string AxisY;
 	private string JumpButton;
 
-	float moveSpeed = 10f;
+	Rigidbody rigBody;
+
+	public float moveForce = 1000f;
+	public float maxMoveForce = 5f;
+
 	float jumpCDMax = 10.0f;
-	float jumpCDLeft = 0f; 
+	float jumpCDLeft = 0f;
+	float jumpForce = 10f;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +31,7 @@ public class Player : MonoBehaviour {
 			AxisY = "JoyVer2";
 			JumpButton = "JoyJump2";
 		}
-
+		rigBody = transform.GetComponent<Rigidbody> ();
 
 	}
 	
@@ -39,16 +44,29 @@ public class Player : MonoBehaviour {
 		if (controlDir != Vector3.zero) 
 		{
 			transform.rotation = Quaternion.LookRotation(controlDir);
-			transform.position = transform.position + transform.forward*Time.deltaTime* moveSpeed;
+			//transform.position = transform.position + transform.forward*Time.deltaTime* moveSpeed;
+			if(rigBody.velocity.magnitude < maxMoveForce)
+			{
+				rigBody.AddForce(transform.forward*Time.deltaTime* moveForce);
+			}
+
 			//transform.Translate(transform.forward* moveSpeed);
 		}
 
-		/*jumpCDLeft -= Time.deltaTime
+		jumpCDLeft -= Time.deltaTime;
+		Mathf.Max (jumpCDLeft, 0);
 
-		if (Input.GetButton (JumpButton)) {
+		if (jumpCDLeft == 0) 
+		{
+			if (Input.GetButton (JumpButton)) 
+			{
+				Debug.Log("Worked");
+				rigBody.AddForce(transform.up* jumpForce);
+				jumpCDLeft += jumpCDMax;
+			}
+		}
+	
 
-		}*/
-		
 
 
 	}

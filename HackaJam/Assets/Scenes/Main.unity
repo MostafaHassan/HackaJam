@@ -257,6 +257,7 @@ GameObject:
   - 65: {fileID: 1337564822}
   - 23: {fileID: 1337564821}
   - 114: {fileID: 1337564825}
+  - 54: {fileID: 1337564826}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -331,6 +332,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 2
+--- !u!54 &1337564826
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1337564820}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1388135097
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +359,7 @@ GameObject:
   - 65: {fileID: 1388135099}
   - 23: {fileID: 1388135098}
   - 114: {fileID: 1388135102}
+  - 54: {fileID: 1388135103}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -417,6 +434,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 1
+--- !u!54 &1388135103
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1388135097}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1527712378
 GameObject:
   m_ObjectHideFlags: 0
