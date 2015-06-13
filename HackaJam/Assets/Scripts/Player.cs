@@ -58,7 +58,8 @@ public class Player : MonoBehaviour {
 
 		if (jumpCDLeft == 0) 
 		{
-			if (Input.GetButton (JumpButton)) 
+			Debug.Log("First step");
+			if (Input.GetButton ("Fire2")) 
 			{
 				Debug.Log("Worked");
 				rigBody.AddForce(transform.up* jumpForce);
