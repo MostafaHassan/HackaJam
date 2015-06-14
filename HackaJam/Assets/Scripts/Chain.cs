@@ -6,9 +6,10 @@ public class Chain : MonoBehaviour {
 	public GameObject Player2;
 	Rigidbody rigBody1;
 	Rigidbody rigBody2;
-	float maxLength = 40f;
+	float maxLength = 100f;
 	float force = 20;
 	float forcePerc = 4;
+	float offsetY = 5.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +22,7 @@ public class Chain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		transform.position = Player1.transform.position;
+		transform.position = Player1.transform.position + new Vector3(0, offsetY, 0);
 		Vector3 toPlayer2 = (Player2.transform.position - Player1.transform.position).normalized;
 		transform.up = toPlayer2;
 		float dist = Vector3.Distance (Player1.transform.position, Player2.transform.position);

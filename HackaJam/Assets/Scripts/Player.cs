@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
 	private string JumpButton;
 	private string DashButton;
 
+	Transform myChild;
+	Animator childAnimator;
+
 	Rigidbody rigBody;
 
 	float moveForce = 1000f;
@@ -40,6 +43,8 @@ public class Player : MonoBehaviour {
 		}
 		rigBody = transform.GetComponent<Rigidbody> ();
 
+		myChild = transform.FindChild ("Player");
+		childAnimator = myChild.transform.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -48,16 +53,19 @@ public class Player : MonoBehaviour {
 		float x = Input.GetAxis (AxisX);
 		float y = Input.GetAxis (AxisY);
 		Vector3 controlDir = new Vector3 (x, 0, -y);
-		if (controlDir != Vector3.zero) 
-		{
-			transform.rotation = Quaternion.LookRotation(controlDir);
+		if (controlDir != Vector3.zero) {
+			transform.rotation = Quaternion.LookRotation (controlDir);
 			//transform.position = transform.position + transform.forward*Time.deltaTime* moveSpeed;
-			if(rigBody.velocity.magnitude < maxMoveForce)
-			{
-				rigBody.AddForce(transform.forward*Time.deltaTime* moveForce);
+			if (rigBody.velocity.magnitude < maxMoveForce) {
+				rigBody.AddForce (transform.forward * Time.deltaTime * moveForce);
+				childAnimator.Play ("Walk");
 			}
 
 			//transform.Translate(transform.forward* moveSpeed);
+		} 
+		else 
+		{
+			childAnimator.CrossFade("Idle", 0.25f);
 		}
 
 		jumpCDLeft -= Time.deltaTime;
@@ -67,10 +75,13 @@ public class Player : MonoBehaviour {
 		{
 			if (Input.GetButton (JumpButton)) 
 			{
-				Debug.Log("Jump!");
-				Debug.Log(JumpButton);
+				childAnimator.Play("Jump");
+
+
 				rigBody.AddForce(transform.up* jumpForce);
 				jumpCDLeft += jumpCDMax;
+
+
 			}
 		}
 
@@ -81,7 +92,7 @@ public class Player : MonoBehaviour {
 		{
 			if (Input.GetButton (DashButton)) 
 			{
-				Debug.Log("Dash!");
+
 				Debug.Log(DashButton);
 				rigBody.AddForce(transform.forward* dashForce);
 				dashCDLeft += dashCDMax;
