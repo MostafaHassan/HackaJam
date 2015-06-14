@@ -16,9 +16,9 @@ public class Player : MonoBehaviour {
 
 	float jumpCDMax = 4.0f;
 	private float jumpCDLeft = 0f;
-	float jumpForce = 500f;
+	float jumpForce = 400f;
 
-	float dashCDMax = 7.0f;
+	float dashCDMax = 5.0f;
 	private float dashCDLeft = 0f;
 	float dashForce = 500f;
 
