@@ -1276,6 +1276,23 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400014, guid: 6d6627afebbc7fc47bbb0c5b916141a5, type: 3}
   m_PrefabInternal: {fileID: 526505817}
+--- !u!95 &313812568
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313812566}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fddcadadc5e23bc4282dac1b8227aa22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!65 &313812569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1449,7 +1466,8 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bafa87d56ea24104e8ce05fb0155d9c9, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 6d6627afebbc7fc47bbb0c5b916141a5, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6627afebbc7fc47bbb0c5b916141a5, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &733158932
@@ -1529,7 +1547,8 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bafa87d56ea24104e8ce05fb0155d9c9, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 6d6627afebbc7fc47bbb0c5b916141a5, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 6d6627afebbc7fc47bbb0c5b916141a5, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &1073346528
@@ -2648,6 +2667,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &1252952022
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1252952019}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f73c02c5a6c87b4daba171e775746ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!65 &1252952023
 BoxCollider:
   m_ObjectHideFlags: 0
