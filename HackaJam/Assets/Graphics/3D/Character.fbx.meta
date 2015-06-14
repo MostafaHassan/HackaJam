@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: facf6f10825b44c419c5a7a71c40d99e
-timeCreated: 1434253074
+guid: 6d6627afebbc7fc47bbb0c5b916141a5
+timeCreated: 1434256383
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,12 +9,12 @@ ModelImporter:
     100002: Arm.R
     100004: Arm_IK.L
     100006: Arm_IK.R
-    100008: Armature
-    100010: Bone
-    100012: Bone.001
-    100014: Bone.002
-    100016: //RootNode
-    100018: Character
+    100008: Bone
+    100010: Bone.001
+    100012: Bone.002
+    100014: //RootNode
+    100016: Character
+    100018: CharacterArmature
     100020: Chest
     100022: Foot.L
     100024: Foot.R
@@ -36,12 +36,12 @@ ModelImporter:
     400002: Arm.R
     400004: Arm_IK.L
     400006: Arm_IK.R
-    400008: Armature
-    400010: Bone
-    400012: Bone.001
-    400014: Bone.002
-    400016: //RootNode
-    400018: Character
+    400008: Bone
+    400010: Bone.001
+    400012: Bone.002
+    400014: //RootNode
+    400016: Character
+    400018: CharacterArmature
     400020: Chest
     400022: Foot.L
     400024: Foot.R
@@ -60,6 +60,9 @@ ModelImporter:
     400050: UpperArm.L
     400052: UpperArm.R
     4300000: Character
+    7400000: CharacterArmature|Untitled
+    7400002: CharacterArmature|Walkcycle
+    7400004: Character|Untitled
     9500000: //RootNode
     13700000: Character
   materials:
