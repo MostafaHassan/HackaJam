@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 72a15558b0c8b1142ba1c81f01010a24
-timeCreated: 1434278896
+guid: c7151178793926348bcc995d2f3e39c5
+timeCreated: 1434280835
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -10,27 +10,33 @@ ModelImporter:
     100004: level
     100006: //RootNode
     100008: Pad
+    100010: Pad.001
     400000: Floor
     400002: Lava
     400004: level
     400006: //RootNode
     400008: Pad
+    400010: Pad.001
     2300000: Floor
     2300002: Lava
     2300004: level
     2300006: Pad
+    2300008: Pad.001
     3300000: Floor
     3300002: Lava
     3300004: level
     3300006: Pad
-    4300000: Floor
-    4300002: Lava
-    4300004: level
-    4300006: Pad
+    3300008: Pad.001
+    4300000: Pad.001
+    4300002: Floor
+    4300004: Lava
+    4300006: level
+    4300008: Pad
     6400000: Floor
     6400002: Lava
     6400004: level
     6400006: Pad
+    6400008: Pad.001
   materials:
     importMaterials: 1
     materialName: 0
