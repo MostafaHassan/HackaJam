@@ -19,11 +19,17 @@ public class Player : MonoBehaviour {
 
 	float jumpCDMax = 4.0f;
 	private float jumpCDLeft = 0f;
-	float jumpForce = 400f;
+	float jumpForce = 300;
+
+	Transform myFeetCol;
+	GroundCollide feetColScript;
 
 	float dashCDMax = 5.0f;
 	private float dashCDLeft = 0f;
 	float dashForce = 500f;
+
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -44,12 +50,19 @@ public class Player : MonoBehaviour {
 		rigBody = transform.GetComponent<Rigidbody> ();
 
 		myChild = transform.FindChild ("Player");
+		myFeetCol = transform.FindChild ("FeetCol");
+
 		childAnimator = myChild.transform.GetComponent<Animator> ();
+		feetColScript = myFeetCol.transform.GetComponent<GroundCollide> ();
+
 	}
-	
+
+
+
 	// Update is called once per frame
 	void Update () 
 	{
+
 		float x = Input.GetAxis (AxisX);
 		float y = Input.GetAxis (AxisY);
 		Vector3 controlDir = new Vector3 (x, 0, -y);
@@ -58,32 +71,47 @@ public class Player : MonoBehaviour {
 			//transform.position = transform.position + transform.forward*Time.deltaTime* moveSpeed;
 			if (rigBody.velocity.magnitude < maxMoveForce) {
 				rigBody.AddForce (transform.forward * Time.deltaTime * moveForce);
+				//childAnimator.CrossFade("Walk", 0.25f);
+
+			}
+			if(!childAnimator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+			{
 				childAnimator.Play ("Walk");
 			}
-
 			//transform.Translate(transform.forward* moveSpeed);
 		} 
 		else 
 		{
-			childAnimator.CrossFade("Idle", 0.25f);
-		}
-
-		jumpCDLeft -= Time.deltaTime;
-		jumpCDLeft = Mathf.Max (jumpCDLeft, 0);
-
-		if (jumpCDLeft == 0f) 
-		{
-			if (Input.GetButton (JumpButton)) 
+			if(!childAnimator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
 			{
-				childAnimator.Play("Jump");
-
-
-				rigBody.AddForce(transform.up* jumpForce);
-				jumpCDLeft += jumpCDMax;
-
-
+				childAnimator.Play("Idle");
 			}
+
 		}
+
+		//jumpCDLeft -= Time.deltaTime;
+		//jumpCDLeft = Mathf.Max (jumpCDLeft, 0);
+
+		if (feetColScript.IsGrounded()) 
+		{
+			/*if (jumpCDLeft == 0f)
+			{*/
+				if (Input.GetButton (JumpButton)) 
+				{
+					if(feetColScript.Jump())
+					{
+						childAnimator.Play("Jump");
+						
+						rigBody.AddForce(transform.up* jumpForce);
+					}
+					
+					//jumpCDLeft += jumpCDMax;
+					
+					
+				}
+			//}
+		}
+
 
 		dashCDLeft -= Time.deltaTime;
 		dashCDLeft = Mathf.Max (dashCDLeft, 0);
@@ -93,14 +121,16 @@ public class Player : MonoBehaviour {
 			if (Input.GetButton (DashButton)) 
 			{
 
-				Debug.Log(DashButton);
 				rigBody.AddForce(transform.forward* dashForce);
 				dashCDLeft += dashCDMax;
 			}
 		}
+
 	
 
 
 
 	}
+
+
 }
