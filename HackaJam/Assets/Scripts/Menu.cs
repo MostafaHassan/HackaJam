@@ -10,6 +10,8 @@ public class Menu : MonoBehaviour {
 	public Texture quitButSelec;
 	public Texture quitButNorm;
 
+	public Texture controller;
+
 	int selected = 0;
 	float cooldown = 0;
 
@@ -55,6 +57,8 @@ public class Menu : MonoBehaviour {
 
 	void OnGUI()
 	{
+		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backGround);
+		GUI.DrawTexture (new Rect (Screen.width - Screen.width / 3, Screen.height / 3 + 200, Screen.width /3, Screen.height/3), controller);
 		if (selected == 0) 
 		{
 			GUI.DrawTexture (new Rect (Screen.width / 2 - Screen.width / 10, Screen.height / 2, Screen.width / 5, Screen.height / 10), gameButSelec);

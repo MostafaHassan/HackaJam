@@ -11,6 +11,8 @@ public class Chain : MonoBehaviour {
 	float forcePerc = 1;
 	float offsetY = 5.5f;
 	float maxPull = 10;
+	float maxForce = 5;
+	float maxDist = 150;
 
 	// Use this for initialization
 	void Start () {
@@ -37,28 +39,36 @@ public class Chain : MonoBehaviour {
 
 			if(forceTo1 > forceTo2)
 			{
-				Debug.Log("1");
+				//Debug.Log("1");
 				//move force * %
-				float addForce = Vector3.Dot(rigBody1.velocity,-toPlayer2);
-				addForce = Mathf.Min(maxPull, addForce);
+				//float addForce = Vector3.Dot(rigBody1.velocity,-toPlayer2);
+				//addForce = Mathf.Min(maxPull, addForce);
+				float addForce = Mathf.Min(dist*8.0f, maxDist )/maxLength;
 				rigBody2.AddForce(-toPlayer2*force + -toPlayer2*addForce*forcePerc);
 			}
 			else if(forceTo1 < forceTo2)
 			{
-				Debug.Log("2");
-				float addForce = Vector3.Dot(rigBody2.velocity, toPlayer2);
-				addForce = Mathf.Min(maxPull, addForce);
+				//Debug.Log("2");
+				//float addForce = Vector3.Dot(rigBody2.velocity, toPlayer2);
+				//addForce = Mathf.Min(maxPull, addForce);
+				float addForce = Mathf.Min(dist*8.0f, maxDist )/maxLength;
 				rigBody1.AddForce(toPlayer2*force + toPlayer2*addForce*forcePerc);
 			}
 			else
 			{
 				Debug.Log("3");
-				float addForce = Vector3.Dot(rigBody2.velocity, toPlayer2);
-				rigBody1.AddForce(toPlayer2*force);
+				//float addForce = Vector3.Dot(rigBody2.velocity, toPlayer2);
+				//rigBody1.AddForce(toPlayer2*force);
 
-				addForce = Vector3.Dot(rigBody1.velocity,-toPlayer2);
-				rigBody2.AddForce(-toPlayer2*force);
+				//addForce = Vector3.Dot(rigBody1.velocity,-toPlayer2);
+				//rigBody2.AddForce(-toPlayer2*force);
 			}
+
+
+		}
+
+		if (Input.GetButton ("Quit")) {
+			Application.LoadLevel(0);
 		}
 
 

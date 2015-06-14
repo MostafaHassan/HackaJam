@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 
 	float dashCDMax = 5.0f;
 	private float dashCDLeft = 0f;
-	float dashForce = 500f;
+	float dashForce = 700f;
 
 	public Texture backBar;
 	public Texture frontBar;
@@ -34,7 +34,11 @@ public class Player : MonoBehaviour {
 
 	AudioSource audioSour;
 
+	public GameObject goalObject;
+	private float winRadius = 50.0f;
 
+	bool haveWon = false;
+	public Texture winTexture;
 
 	// Use this for initialization
 	void Start () {
@@ -123,7 +127,12 @@ public class Player : MonoBehaviour {
 				
 			}
 
-
+			float toGoalDist = Vector3.Distance( transform.position,goalObject.transform.position ) ;
+			if (toGoalDist < winRadius ) 
+			{
+				Debug.Log("YOU HAVE WON!");
+				haveWon = true;
+			}
 			//}
 		}
 
@@ -143,7 +152,12 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-	
+
+		if (Input.GetButton (JumpButton) && haveWon) 
+		{
+			Application.LoadLevel(0);
+		}
+			
 
 
 
@@ -163,6 +177,9 @@ public class Player : MonoBehaviour {
 			GUI.DrawTexture (new Rect(Screen.width - Screen.width/100 - 200, Screen.height - Screen.height/10, 200, Screen.height/20), backBar);
 			GUI.DrawTexture (new Rect(Screen.width - Screen.width/100 - 200*(dashCDMax-dashCDLeft)/dashCDMax, Screen.height - Screen.height/10, 200* (dashCDMax-dashCDLeft)/dashCDMax, Screen.height/20), frontBar);
 			                 
+		}
+		if (haveWon) {
+			GUI.DrawTexture(new Rect(Screen.width/2 - 750/2, Screen.height/2 - Screen.height/8, 750, 250), winTexture);
 		}
 	}
 
