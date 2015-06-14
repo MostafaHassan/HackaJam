@@ -14,12 +14,12 @@ public class Player : MonoBehaviour {
 
 	Rigidbody rigBody;
 
-	float moveForce = 1000f;
-	float maxMoveForce = 5f;
+	float moveForce = 3000f;
+	float maxMoveForce = 10f;
 
 	float jumpCDMax = 4.0f;
 	private float jumpCDLeft = 0f;
-	float jumpForce = 300;
+	float jumpForce = 700;
 
 	Transform myFeetCol;
 	GroundCollide feetColScript;
