@@ -32,6 +32,7 @@ public class Player : MonoBehaviour {
 	public Texture frontBar;
 	public Texture playerTex;
 
+	AudioSource audioSour;
 
 
 
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour {
 
 		childAnimator = myChild.transform.GetComponent<Animator> ();
 		feetColScript = myFeetCol.transform.GetComponent<GroundCollide> ();
+		audioSour = transform.GetComponent<AudioSource> ();
 
 	}
 
@@ -81,6 +83,13 @@ public class Player : MonoBehaviour {
 			if(!childAnimator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
 			{
 				childAnimator.Play ("Walk");
+				if(feetColScript.IsGrounded())
+				{
+					if(!audioSour.isPlaying)
+					{
+						audioSour.Play();
+					}
+				}
 			}
 			//transform.Translate(transform.forward* moveSpeed);
 		} 
@@ -100,21 +109,25 @@ public class Player : MonoBehaviour {
 		{
 			/*if (jumpCDLeft == 0f)
 			{*/
-				if (Input.GetButton (JumpButton)) 
+			if (Input.GetButton (JumpButton)) 
+			{
+				if(feetColScript.Jump())
 				{
-					if(feetColScript.Jump())
-					{
-						childAnimator.Play("Jump");
-						
-						rigBody.AddForce(transform.up* jumpForce);
-					}
+					childAnimator.Play("Jump");
 					
-					//jumpCDLeft += jumpCDMax;
-					
-					
+					rigBody.AddForce(transform.up* jumpForce);
 				}
+				
+				//jumpCDLeft += jumpCDMax;
+				
+				
+			}
+
+
 			//}
 		}
+
+
 
 
 		dashCDLeft -= Time.deltaTime;
