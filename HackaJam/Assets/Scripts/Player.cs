@@ -132,5 +132,10 @@ public class Player : MonoBehaviour {
 
 	}
 
+	void OnGUI()
+	{
+
+	}
+
 
 }
