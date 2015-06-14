@@ -3033,6 +3033,10 @@ Prefab:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 13747024, guid: e440508effadd8c408efaab9177d85e7, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7af5e645e63e424b884eb911f5ca06e, type: 2}
     m_RemovedComponents:
     - {fileID: 9564748, guid: e440508effadd8c408efaab9177d85e7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e440508effadd8c408efaab9177d85e7, type: 2}
@@ -5680,7 +5684,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: b2e5bf4d610ed5447a7349ef104c28b8, type: 2}
+  - {fileID: 2100000, guid: 19ed893a65821764d9d45c15e85f6ff2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
