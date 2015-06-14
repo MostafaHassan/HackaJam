@@ -23,7 +23,6 @@ public class GroundCollide : MonoBehaviour {
 
 		if (mCol.transform.tag != "Player") 
 		{
-			Debug.Log("ERROR");
 			isGrounded = true;
 			cooldown = 0.25f;
 		}
