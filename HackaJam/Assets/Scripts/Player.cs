@@ -28,6 +28,10 @@ public class Player : MonoBehaviour {
 	private float dashCDLeft = 0f;
 	float dashForce = 500f;
 
+	public Texture backBar;
+	public Texture frontBar;
+	public Texture playerTex;
+
 
 
 
@@ -134,7 +138,19 @@ public class Player : MonoBehaviour {
 
 	void OnGUI()
 	{
-
+		if (PlayerNumber == 1) 
+		{
+			GUI.DrawTexture(new Rect(Screen.width/100, Screen.height - 2*Screen.height/10, 50, 50), playerTex);
+			GUI.DrawTexture (new Rect(Screen.width/100, Screen.height - Screen.height/10, 200, Screen.height/20), backBar);
+			GUI.DrawTexture (new Rect(Screen.width/100, Screen.height - Screen.height/10, 200*(dashCDMax-dashCDLeft)/dashCDMax, Screen.height/20), frontBar);
+		}
+		else if (PlayerNumber == 2)
+		{
+			GUI.DrawTexture(new Rect(Screen.width - Screen.width/100 - 60, Screen.height - 2*Screen.height/10, 50, 50), playerTex);
+			GUI.DrawTexture (new Rect(Screen.width - Screen.width/100 - 200, Screen.height - Screen.height/10, 200, Screen.height/20), backBar);
+			GUI.DrawTexture (new Rect(Screen.width - Screen.width/100 - 200*(dashCDMax-dashCDLeft)/dashCDMax, Screen.height - Screen.height/10, 200* (dashCDMax-dashCDLeft)/dashCDMax, Screen.height/20), frontBar);
+			                 
+		}
 	}
 
 
