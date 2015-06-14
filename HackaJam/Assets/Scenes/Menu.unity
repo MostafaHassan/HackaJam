@@ -259,6 +259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7df1ede930ff747a80bd6a09bcd29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backGround: {fileID: 0}
+  gameButSelec: {fileID: 2800000, guid: 4bc12f35f588f4045bf6725ba65d2033, type: 3}
+  gameButNorm: {fileID: 2800000, guid: 0cd06e0fcc7b9b54985a6c48a8a0a751, type: 3}
+  quitButSelec: {fileID: 2800000, guid: 67d5cc0711990d24da7e6831acb16c1f, type: 3}
+  quitButNorm: {fileID: 2800000, guid: 2c630d1aa6d666043a796fd254a1f887, type: 3}
 --- !u!4 &875026555
 Transform:
   m_ObjectHideFlags: 0

@@ -8,8 +8,9 @@ public class Chain : MonoBehaviour {
 	Rigidbody rigBody2;
 	float maxLength = 100f;
 	float force = 20;
-	float forcePerc = 4;
+	float forcePerc = 1;
 	float offsetY = 5.5f;
+	float maxPull = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -39,12 +40,14 @@ public class Chain : MonoBehaviour {
 				Debug.Log("1");
 				//move force * %
 				float addForce = Vector3.Dot(rigBody1.velocity,-toPlayer2);
+				addForce = Mathf.Min(maxPull, addForce);
 				rigBody2.AddForce(-toPlayer2*force + -toPlayer2*addForce*forcePerc);
 			}
 			else if(forceTo1 < forceTo2)
 			{
 				Debug.Log("2");
 				float addForce = Vector3.Dot(rigBody2.velocity, toPlayer2);
+				addForce = Mathf.Min(maxPull, addForce);
 				rigBody1.AddForce(toPlayer2*force + toPlayer2*addForce*forcePerc);
 			}
 			else
